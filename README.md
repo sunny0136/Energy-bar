@@ -1,2 +1,2 @@
 # Energy-bar
-A customizable energy/progress bar built with [insert your tech stack, e.g., HTML/CSS and JavaScript.
+A customizable energy/progress bar built with HTML/CSS and JavaScript.
