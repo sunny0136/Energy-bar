@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Energieausweis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="energy-bar-container" id="bar">
+    <div class="segment Aplus">A+</div>
+    <div class="segment A">A</div>
+    <div class="segment B">B</div>
+    <div class="segment C">C</div>
+    <div class="segment D">D</div>
+    <div class="segment E">UND</div>
+    <div class="segment F">F</div>
+    <div class="segment G">G</div>
+    <div class="segment H">H</div>
+
+    <!-- Marker and Circle -->
+    <div class="marker" id="marker">63.2 kWh/m²a</div>
+    <div class="circle" id="circle"></div>
+  </div>
+
+  <div class="scale-labels">
+    <span>0</span><span>25</span><span>50</span><span>75</span><span>100</span>
+    <span>125</span><span>150</span><span>175</span><span>200</span><span>225</span>
+  </div>
+
+  <script>
+    const value = 63.2; // input value
+    const min = 0;
+    const max = 225;
+
+    const percent = ((value - min) / (max - min)) * 100;
+
+    const labels = [
+      { label: "A+", min: 0, max: 25 },
+      { label: "A",  min: 25, max: 50 },
+      { label: "B",  min: 50, max: 75 },
+      { label: "C",  min: 75, max: 100 },
+      { label: "D",  min: 100, max: 125 },
+      { label: "UND",min: 125, max: 150 },
+      { label: "F",  min: 150, max: 175 },
+      { label: "G",  min: 175, max: 200 },
+      { label: "H",  min: 200, max: 225 }
+    ];
+
+    const marker = document.getElementById('marker');
+    const circle = document.getElementById('circle');
+
+    marker.style.left = `${percent}%`;
+    circle.style.left = `${percent}%`;
+
+    const range = labels.find(r => value >= r.min && value < r.max);
+    if (range) {
+      circle.textContent = range.label;
+    }
+  </script>
+
+</body>
+</html>

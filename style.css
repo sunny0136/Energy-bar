@@ -1,0 +1,89 @@
+.energy-bar-container {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  margin-top: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: visible;
+  background: linear-gradient(90deg, #02B14F 0%, #B1E115 27.4%, #FF9500 54%, #F45700 74.4%, #E70A00 100%);
+}
+
+.energy-bar-container .segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  color: #fff;
+  font-size: 16px;
+  border-right: 1px solid #fff;
+  width: calc(25 / 225 * 100%);
+}
+
+.energy-bar-container .segment.H {
+  border-right: 0;
+}
+
+.energy-bar-container .marker {
+  position: absolute;
+  top: -45px;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.energy-bar-container .marker::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #000;
+}
+
+.energy-bar-container .circle {
+  position: absolute;
+  top: -7px;
+  bottom: -7px;
+  transform: translateX(-50%);
+  width: 40px;
+  height: auto;
+  background: #fd9600;
+  border: 3px solid #fff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  box-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.2509803922);
+}
+
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: 10px auto 40px;
+  font-size: 12px;
+  padding: 0 2px;
+}
+
+.scale-labels div {
+  width: calc(25 / 225 * 100%);
+  max-width: 100%;
+}
+
+.scale-labels div:last-child {
+  width: auto;
+  max-width: 100%;
+}
